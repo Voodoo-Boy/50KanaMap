@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>五十音图 Memory Aid</title>
+	<script>
+		/*
+		あア	かカ	さサ	たタ	なナ	はハ	まマ	やヤ	らラ	わワ
+		いイ	きキ	しシ	ちチ	にニ	ひヒ	みミ	※	りリ	ゐヰ
+		うウ	くク	すス	つツ	ぬヌ	ふフ	むム	ゆユ	るル	※
+		えエ	けケ	せセ	てテ	ねネ	へヘ	めメ	※	れレ	ゑヱ
+		おオ	こコ	そソ	とト	のノ	ほホ	もモ	よヨ	ろロ	をヲ
+		んン
+		(n)
+		*/
+		var Kanas = [
+			"あ", "ア", "い", "イ", "う", "ウ", "え", "エ", "お", "オ",
+			"か", "カ", "き", "キ", "く", "ク", "け", "ケ", "こ", "コ",
+			"さ", "サ", "し", "シ", "す", "ス", "せ", "セ", "そ", "ソ",
+			"た", "タ", "ち", "チ", "つ", "ツ", "て", "テ", "と", "ト"
+		];
+
+		function DisplayRandomKana() {
+			var card = document.getElementById("card");
+			card.innerHTML = Kanas[GetRandomInt(Kanas.length)];
+		}
+
+		function GetRandomInt(max) {
+			return Math.floor(Math.random() * Math.floor(max));
+		}
+
+		function ToggleReference() {
+			var reference = document.getElementById("reference");
+			if (reference.style.display == "none") reference.style = "block";
+			else reference.style.display = "none";
+		}
+	</script>
+</head>
+
+<body>
+	<div>
+		<div id="card" style="font-size: 40px;height: 60px">&nbsp;</div>
+		<div>
+			<button type="button" onclick="DisplayRandomKana()">Random One</button>
+			<button type="button" onclick="ToggleReference()">Reference</button>
+		</div>
+		<br>
+		<div id="reference" style="display: none">
+			<div>●平 假 名 - 清 音
+				<br>
+			</div>
+			<table border="1" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td height="40" width="40" align="center">
+							<div align="center">あ
+								<br>a</div>
+						</td>
+						<td height="40" width="40" align="center">
+							<div align="center">か
+								<br>ka</div>
+						</td>
+						<td width="49">
+							<div align="center">さ
+								<br>sa</div>
+						</td>
+						<td width="49">
+							<div align="center">た
+								<br>ta</div>
+						</td>
+						<td width="49">
+							<div align="center">な
+								<br>na</div>
+						</td>
+						<td width="49">
+							<div align="center">は
+								<br>ha</div>
+						</td>
+						<td width="49">
+							<div align="center">ま
+								<br>ma</div>
+						</td>
+						<td width="49">
+							<div align="center">や
+								<br>ya</div>
+						</td>
+						<td width="49">
+							<div align="center">ら
+								<br>ra</div>
+						</td>
+						<td width="49">
+							<div align="center">わ
+								<br>wa</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="49">
+							<div align="center">い
+								<br>i</div>
+						</td>
+						<td width="49">
+							<div align="center">き
+								<br>ki</div>
+						</td>
+						<td width="49">
+							<div align="center">し
+								<br>shi</div>
+						</td>
+						<td width="49">
+							<div align="center">ち
+								<br>chi</div>
+						</td>
+						<td width="49">
+							<div align="center">に
+								<br>ni</div>
+						</td>
+						<td width="49">
+							<div align="center">ひ
+								<br>hi</div>
+						</td>
+						<td width="49">
+							<div align="center">み
+								<br>mi</div>
+						</td>
+						<td width="49">
+							<div align="center">&nbsp;</div>
+						</td>
+						<td width="49">
+							<div align="center">り
+								<br>ri</div>
+						</td>
+						<td width="49">
+							<div align="center">&nbsp;</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="49">
+							<div align="center">う
+								<br>u</div>
+						</td>
+						<td width="49">
+							<div align="center">く
+								<br>ku</div>
+						</td>
+						<td width="49">
+							<div align="center">す
+								<br>su</div>
+						</td>
+						<td width="49">
+							<div align="center">つ
+								<br>tsu</div>
+						</td>
+						<td width="49">
+							<div align="center">ぬ
+								<br>nu</div>
+						</td>
+						<td width="49">
+							<div align="center">ふ
+								<br>fu</div>
+						</td>
+						<td width="49">
+							<div align="center">む
+								<br>mu</div>
+						</td>
+						<td width="49">
+							<div align="center">ゆ
+								<br>yu</div>
+						</td>
+						<td width="49">
+							<div align="center">る
+								<br>ru</div>
+						</td>
+						<td width="49">
+							<div align="center">ん
+								<br>n </div>
+						</td>
+					</tr>
+					<tr>
+						<td width="49">
+							<div align="center">え
+								<br>e</div>
+						</td>
+						<td width="49">
+							<div align="center">け
+								<br>ke</div>
+						</td>
+						<td width="49">
+							<div align="center">せ
+								<br>se</div>
+						</td>
+						<td width="49">
+							<div align="center">て
+								<br>te</div>
+						</td>
+						<td width="49">
+							<div align="center">ね
+								<br>ne</div>
+						</td>
+						<td width="49">
+							<div align="center">へ
+								<br>he</div>
+						</td>
+						<td width="49">
+							<div align="center">め
+								<br>me</div>
+						</td>
+						<td width="49">
+							<div align="center">&nbsp;</div>
+						</td>
+						<td width="49">
+							<div align="center">れ
+								<br>re</div>
+						</td>
+						<td width="49">
+							<div align="center">&nbsp;</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="49">
+							<div align="center">お
+								<br>o</div>
+						</td>
+						<td width="49">
+							<div align="center">こ
+								<br>ko</div>
+						</td>
+						<td width="49">
+							<div align="center">そ
+								<br>so</div>
+						</td>
+						<td width="49">
+							<div align="center">と
+								<br>to</div>
+						</td>
+						<td width="49">
+							<div align="center">の
+								<br>no</div>
+						</td>
+						<td width="49">
+							<div align="center">ほ
+								<br>ho</div>
+						</td>
+						<td width="49">
+							<div align="center">も
+								<br>mo</div>
+						</td>
+						<td width="49">
+							<div align="center">よ
+								<br>yo</div>
+						</td>
+						<td width="49">
+							<div align="center">ろ
+								<br>ro</div>
+						</td>
+						<td width="49">
+							<div align="center">を
+								<br>o</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>●平 假 名 - 濁 音 ＆ 半 濁 音</div>
+			<table border="1" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td width="69">
+							<div align="center">が
+								<br>ga</div>
+						</td>
+						<td width="69">
+							<div align="center">ざ
+								<br>za</div>
+						</td>
+						<td width="69">
+							<div align="center">だ
+								<br>da</div>
+						</td>
+						<td width="69">
+							<div align="center">ば
+								<br>ba</div>
+						</td>
+						<td width="69">
+							<div align="center">ぱ
+								<br>pa</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+					<tr>
+						<td width="69">
+							<div align="center">ぎ
+								<br>gi</div>
+						</td>
+						<td width="69">
+							<div align="center">じ
+								<br>ji</div>
+						</td>
+						<td width="69">
+							<div align="center">ぢ
+								<br>ji</div>
+						</td>
+						<td width="69">
+							<div align="center">び
+								<br>bi</div>
+						</td>
+						<td width="69">
+							<div align="center">ぴ
+								<br>pi</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+					<tr>
+						<td width="69">
+							<div align="center">ぐ
+								<br>gu</div>
+						</td>
+						<td width="69">
+							<div align="center">ず
+								<br>zu</div>
+						</td>
+						<td width="69">
+							<div align="center">づ
+								<br>zu</div>
+						</td>
+						<td width="69">
+							<div align="center">ぶ
+								<br>bu</div>
+						</td>
+						<td width="69">
+							<div align="center">ぷ
+								<br>pu</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+					<tr>
+						<td width="69">
+							<div align="center">げ
+								<br>ge</div>
+						</td>
+						<td width="69">
+							<div align="center">ぜ
+								<br>ze</div>
+						</td>
+						<td width="69">
+							<div align="center">で
+								<br>de</div>
+						</td>
+						<td width="69">
+							<div align="center">べ
+								<br>be</div>
+						</td>
+						<td width="69">
+							<div align="center">ぺ
+								<br>pe</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+					<tr>
+						<td width="69">
+							<div align="center">ご
+								<br>go</div>
+						</td>
+						<td width="69">
+							<div align="center">ぞ
+								<br>zo</div>
+						</td>
+						<td width="69">
+							<div align="center">ど
+								<br>do</div>
+						</td>
+						<td width="69">
+							<div align="center">ぼ
+								<br>bo</div>
+						</td>
+						<td width="69">
+							<div align="center">ぽ
+								<br>po</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+				</tbody>
+			</table>
+			<div>●平 假 名 - 拗 音</div>
+			<table border="1" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td width="43">
+							<div align="center">きゃ</div>
+							<div align="center">kya</div>
+						</td>
+						<td width="48">
+							<div align="center">ぎゃ</div>
+							<div align="center">gya</div>
+						</td>
+						<td width="48">
+							<div align="center">しゃ</div>
+							<div align="center">sha</div>
+						</td>
+						<td width="48">
+							<div align="center">じゃ</div>
+							<div align="center">ja</div>
+						</td>
+						<td width="48">
+							<div align="center">ちゃ</div>
+							<div align="center">cha</div>
+						</td>
+						<td width="48">
+							<div align="center">にゃ</div>
+							<div align="center">nya</div>
+						</td>
+						<td width="48">
+							<div align="center">ひゃ</div>
+							<div align="center">hya</div>
+						</td>
+						<td width="48">
+							<div align="center">びゃ</div>
+							<div align="center">bya</div>
+						</td>
+						<td width="48">
+							<div align="center">ぴゃ</div>
+							<div align="center">pya</div>
+						</td>
+						<td width="60">
+							<div align="center">みゃ</div>
+							<div align="center">mya</div>
+						</td>
+						<td width="48">
+							<div align="center">りゃ</div>
+							<div align="center">rya</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="43">
+							<div align="center">きゅ</div>
+							<div align="center">kyu</div>
+						</td>
+						<td width="48">
+							<div align="center">ぎゅ</div>
+							<div align="center">gyu</div>
+						</td>
+						<td width="48">
+							<div align="center">しゅ</div>
+							<div align="center">shu</div>
+						</td>
+						<td width="48">
+							<div align="center">じゅ</div>
+							<div align="center">ju</div>
+						</td>
+						<td width="48">
+							<div align="center">ちゅ</div>
+							<div align="center">chu</div>
+						</td>
+						<td width="48">
+							<div align="center">にゅ</div>
+							<div align="center">nyu</div>
+						</td>
+						<td width="48">
+							<div align="center">ひゅ</div>
+							<div align="center">hyu</div>
+						</td>
+						<td width="48">
+							<div align="center">びゅ</div>
+							<div align="center">byu</div>
+						</td>
+						<td width="48">
+							<div align="center">ぴゅ</div>
+							<div align="center">pyu</div>
+						</td>
+						<td width="60">
+							<div align="center">みゅ</div>
+							<div align="center">myu</div>
+						</td>
+						<td width="48">
+							<div align="center">りゅ</div>
+							<div align="center">ryu</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="43">
+							<div align="center">きょ</div>
+							<div align="center">kyo</div>
+						</td>
+						<td width="48">
+							<div align="center">ぎょ</div>
+							<div align="center">gyo</div>
+						</td>
+						<td width="48">
+							<div align="center">しょ</div>
+							<div align="center">sho</div>
+						</td>
+						<td width="48">
+							<div align="center">じ</div>
+							<div align="center">ょjo</div>
+						</td>
+						<td width="48">
+							<div align="center">ちょ</div>
+							<div align="center">cho</div>
+						</td>
+						<td width="48">
+							<div align="center">にょ</div>
+							<div align="center">nyo</div>
+						</td>
+						<td width="48">
+							<div align="center">ひょ</div>
+							<div align="center">hyo</div>
+						</td>
+						<td width="48">
+							<div align="center">びょ</div>
+							<div align="center">byo</div>
+						</td>
+						<td width="48">
+							<div align="center">ぴょ</div>
+							<div align="center">pyo</div>
+						</td>
+						<td width="60">
+							<div align="center">みょ</div>
+							<div align="center">myo</div>
+						</td>
+						<td width="48">
+							<div align="center">りょ</div>
+							<div align="center">ryo</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>&nbsp;</div>
+			<div>
+				<b>●五 十 音 音 韻 表 ( 片 假 名 )</b>
+			</div>
+			<div>◎片 假 名 - 清 音</div>
+			<table border="1" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ア
+								<br>a</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">カ
+								<br>ka</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">サ
+								<br>sa</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">タ
+								<br>ta</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ナ
+								<br>na</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ハ
+								<br>ha</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">マ
+								<br>ma</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ヤ
+								<br>ya</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ラ
+								<br>ra</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ワ
+								<br>wa</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">イ
+								<br>i</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">キ
+								<br>ki</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">シ
+								<br>shi</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">チ
+								<br>chi</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ニ
+								<br>ni</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ヒ
+								<br>hi</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ミ
+								<br>mi</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">&nbsp;</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">リ
+								<br>ri</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">&nbsp;</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ウ
+								<br>u</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ク
+								<br>ku</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ス
+								<br>su</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ツ
+								<br>tsu</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ヌ
+								<br>nu</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">フ
+								<br>fu</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ム
+								<br>mu</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ユ
+								<br>yu</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ル
+								<br>ru</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center"> ン
+								<br>n</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">エ
+								<br>e</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ケ
+								<br>ke</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">セ
+								<br>se</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">テ
+								<br>te</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ネ
+								<br>ne</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ヘ
+								<br>he</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">メ
+								<br>me</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">&nbsp;</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">レ
+								<br>re</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">&nbsp;</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">オ
+								<br>o</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">コ
+								<br>ko</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ソ
+								<br>so</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ト
+								<br>to</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ノ
+								<br>no</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ホ
+								<br>ho</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">モ
+								<br>mo</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ヨ
+								<br>yo</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ロ
+								<br>ro</div>
+						</td>
+						<td width="49" bgcolor="#ffffff">
+							<div align="center">ヲ
+								<br>o</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>◎片 假 名 - 濁 音 ＆ 濁 音</div>
+			<table border="1" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td width="69">
+							<div align="center">ガ
+								<br>ga</div>
+						</td>
+						<td width="69">
+							<div align="center">ザ
+								<br>za</div>
+						</td>
+						<td width="69">
+							<div align="center">ダ
+								<br>da</div>
+						</td>
+						<td width="69">
+							<div align="center">バ
+								<br>ba</div>
+						</td>
+						<td width="69">
+							<div align="center">パ
+								<br>pa</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+					<tr>
+						<td width="69">
+							<div align="center">ギ
+								<br>gi</div>
+						</td>
+						<td width="69">
+							<div align="center">ジ
+								<br>ji</div>
+						</td>
+						<td width="69">
+							<div align="center">ジ
+								<br>ji</div>
+						</td>
+						<td width="69">
+							<div align="center">ビ
+								<br>bi</div>
+						</td>
+						<td width="69">
+							<div align="center">ピ
+								<br>pi</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+					<tr>
+						<td width="69">
+							<div align="center">グ
+								<br>gu</div>
+						</td>
+						<td width="69">
+							<div align="center">ズ
+								<br>zu</div>
+						</td>
+						<td width="69">
+							<div align="center">ズ
+								<br>zu</div>
+						</td>
+						<td width="69">
+							<div align="center">ブ
+								<br>bu</div>
+						</td>
+						<td width="69">
+							<div align="center">プ
+								<br>pu</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+					<tr>
+						<td width="69">
+							<div align="center">ゲ
+								<br>ge</div>
+						</td>
+						<td width="69">
+							<div align="center">ゼ
+								<br>ze</div>
+						</td>
+						<td width="69">
+							<div align="center">デ
+								<br>de</div>
+						</td>
+						<td width="69">
+							<div align="center">ベ
+								<br>be</div>
+						</td>
+						<td width="69">
+							<div align="center">ペ
+								<br>pe</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+					<tr>
+						<td width="69">
+							<div align="center">ゴ
+								<br>go</div>
+						</td>
+						<td width="69">
+							<div align="center">ゾ
+								<br>zo</div>
+						</td>
+						<td width="69">
+							<div align="center">ド
+								<br>do</div>
+						</td>
+						<td width="69">
+							<div align="center">ボ
+								<br>bo</div>
+						</td>
+						<td width="69">
+							<div align="center">ポ
+								<br>po</div>
+						</td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+						<td width="69"> </td>
+					</tr>
+				</tbody>
+			</table>
+			<div>◎片 假 名 - 拗 音</div>
+			<table border="1" cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr>
+						<td width="36">
+							<div align="center">キャ</div>
+							<div align="center">kya</div>
+						</td>
+						<td width="48">
+							<div align="center">ギャ</div>
+							<div align="center">gya</div>
+						</td>
+						<td width="36">
+							<div align="center">シャ</div>
+							<div align="center">sha</div>
+						</td>
+						<td width="48">
+							<div align="center">ジャ</div>
+							<div align="center">ja</div>
+						</td>
+						<td width="36">
+							<div align="center">チャ</div>
+							<div align="center">cha</div>
+						</td>
+						<td width="36">
+							<div align="center">ニャ</div>
+							<div align="center">nya</div>
+						</td>
+						<td width="36">
+							<div align="center">ヒャ</div>
+							<div align="center">hya</div>
+						</td>
+						<td width="48">
+							<div align="center">ビャ</div>
+							<div align="center">bya</div>
+						</td>
+						<td width="36">
+							<div align="center">ピャ</div>
+							<div align="center">pya</div>
+						</td>
+						<td width="48">
+							<div align="center">ミャ</div>
+							<div align="center">mya</div>
+						</td>
+						<td width="36">
+							<div align="center">リャ</div>
+							<div align="center">rya</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="36">
+							<div align="center">キュ</div>
+							<div align="center">kyu</div>
+						</td>
+						<td width="48">
+							<div align="center">ギュ</div>
+							<div align="center">gyu</div>
+						</td>
+						<td width="36">
+							<div align="center">シュ</div>
+							<div align="center">shu</div>
+						</td>
+						<td width="48">
+							<div align="center">ジュ</div>
+							<div align="center">ju</div>
+						</td>
+						<td width="36">
+							<div align="center">チュ</div>
+							<div align="center">chu</div>
+						</td>
+						<td width="36">
+							<div align="center">ニュ</div>
+							<div align="center">nyu</div>
+						</td>
+						<td width="36">
+							<div align="center">ヒュ</div>
+							<div align="center">hyu</div>
+						</td>
+						<td width="48">
+							<div align="center">ビュ</div>
+							<div align="center">byu</div>
+						</td>
+						<td width="36">
+							<div align="center">ピュ</div>
+							<div align="center">pyu</div>
+						</td>
+						<td width="48">
+							<div align="center">ミュ</div>
+							<div align="center">myu</div>
+						</td>
+						<td width="36">
+							<div align="center">チュ</div>
+							<div align="center">ryu</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="36">
+							<div align="center">キョ</div>
+							<div align="center">kyo</div>
+						</td>
+						<td width="48">
+							<div align="center">ギョ</div>
+							<div align="center">gyo</div>
+						</td>
+						<td width="36">
+							<div align="center">ショ</div>
+							<div align="center">sho</div>
+						</td>
+						<td width="48">
+							<div align="center">ジョ</div>
+							<div align="center">jo</div>
+						</td>
+						<td width="36">
+							<div align="center">チョ</div>
+							<div align="center">cho</div>
+						</td>
+						<td width="36">
+							<div align="center">ニョ</div>
+							<div align="center">nyo</div>
+						</td>
+						<td width="36">
+							<div align="center">ヒョ</div>
+							<div align="center">hyo</div>
+						</td>
+						<td width="48">
+							<div align="center">ビョ</div>
+							<div align="center">byo</div>
+						</td>
+						<td width="36">
+							<div align="center">ピョ</div>
+							<div align="center">pyo</div>
+						</td>
+						<td width="48">
+							<div align="center">ミョ</div>
+							<div align="center">myo</div>
+						</td>
+						<td width="36">
+							<div align="center">リョ</div>
+							<div align="center">ryo</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>&nbsp;</div>
+			<div>其他常用字</div>
+			<div>促音用字---
+				<br>平假名(っ)--例如:もっと
+				<br>片假名(ッ)--例如:ニット</div>
+			<div>長音用字---
+				<br>片假名(ー)--例如:マフラー(圍巾)</div>
+			<div>
+				<br>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
