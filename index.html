@@ -7,9 +7,9 @@
 	<script>
 		/*
 		あア	かカ	さサ	たタ	なナ	はハ	まマ	やヤ	らラ	わワ
-		いイ	きキ	しシ	ちチ	にニ	ひヒ	みミ	※	りリ	ゐヰ
+		いイ	きキ	しシ	ちチ	にニ	ひヒ	みミ	※	    りリ	ゐヰ
 		うウ	くク	すス	つツ	ぬヌ	ふフ	むム	ゆユ	るル	※
-		えエ	けケ	せセ	てテ	ねネ	へヘ	めメ	※	れレ	ゑヱ
+		えエ	けケ	せセ	てテ	ねネ	へヘ	めメ	※	    れレ	ゑヱ
 		おオ	こコ	そソ	とト	のノ	ほホ	もモ	よヨ	ろロ	をヲ
 		んン
 		(n)
@@ -19,12 +19,39 @@
 			"か", "カ", "き", "キ", "く", "ク", "け", "ケ", "こ", "コ",
 			"さ", "サ", "し", "シ", "す", "ス", "せ", "セ", "そ", "ソ",
 			"た", "タ", "ち", "チ", "つ", "ツ", "て", "テ", "と", "ト",
-			"な", "ナ", "に", "ニ", "ぬ", "ヌ", "ね", "ネ", "の", "ノ"
+			"な", "ナ", "に", "ニ", "ぬ", "ヌ", "ね", "ネ", "の", "ノ",
+            "は", "ハ", "ひ", "ヒ", "ふ", "フ", "へ", "ヘ", "ほ", "ホ",
+            "ま", "マ", "み", "ミ", "む", "ム", "め", "メ", "も", "モ",
+            "や", "ヤ", "ゆ", "ユ", "よ", "ヨ",
+            "ら", "ラ", "り", "リ", "る", "ル", "れ", "レ", "ろ", "ロ",
+            "わ", "ワ", "を", "ヲ",
+            "ん", "ン"
 		];
 
+        var Pronunciations = [
+            "a",  "i",   "u",   "e", "o",
+            "ka", "ki",  "ku",  "ke", "ko",
+            "sa", "shi", "su",  "se", "so",
+            "ta", "chi", "tsu", "te", "to",
+            "na", "ni",  "nu",  "ne", "no",
+            "ha", "hi",  "fu",  "he", "ho",
+            "ma", "mi",  "mu",  "me", "mo",
+            "ya", "yu",  "yo",
+            "ra", "ri",  "ru",  "re", "ro",
+            "wa", "o(wo)",
+            "n"
+        ];
+
+        var CurKana = -1;
+
 		function DisplayRandomKana() {
+            // var kanaToDisplay = GetRandomInt(Kanas.length);
+            var kanaToDisplay = GetRandomInt(50);
+
 			var card = document.getElementById("card");
-			card.innerHTML = Kanas[GetRandomInt(Kanas.length)];
+			card.innerHTML = Kanas[kanaToDisplay];
+
+            CurKana = kanaToDisplay;
 		}
 
 		function GetRandomInt(max) {
@@ -36,6 +63,22 @@
 			if (reference.style.display == "none") reference.style = "block";
 			else reference.style.display = "none";
 		}
+
+        function TurnOnPronunciation() {
+            if (CurKana >= 0) {
+                var pronunciationToDisplay = Math.floor(CurKana/2);
+
+                var card = document.getElementById("card");
+                card.innerHTML = Kanas[CurKana] + "&nbsp;" + Pronunciations[pronunciationToDisplay];
+            }
+        }
+
+        function TurnOffPronunciation() {
+            if (CurKana >= 0) {
+                var card = document.getElementById("card");
+                card.innerHTML = Kanas[CurKana];
+            }
+        }
 	</script>
 </head>
 
@@ -44,6 +87,10 @@
 		<div id="card" style="font-size: 40px;height: 60px">&nbsp;</div>
 		<div>
 			<button type="button" onclick="DisplayRandomKana()">Random One</button>
+			<button type="button" onmousedown="TurnOnPronunciation()" onmouseup="TurnOffPronunciation()" onmouseleave="TurnOffPronunciation()">Pronunciation</button>
+		</div>
+        <br>
+		<div>
 			<button type="button" onclick="ToggleReference()">Reference</button>
 		</div>
 		<br>
