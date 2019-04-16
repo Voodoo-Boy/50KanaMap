@@ -43,13 +43,19 @@
         ];
 
         var CurKana = -1;
+        var Counter = 0;
 
 		function DisplayRandomKana() {
+            // Get a random kana to display and update the html element.
             var kanaToDisplay = GetRandomInt(Kanas.length);
-
 			var card = document.getElementById("card");
 			card.innerHTML = Kanas[kanaToDisplay];
 
+            // Increment the counter
+			var counter = document.getElementById("counter");
+			counter.innerHTML = "Counter: " + ++Counter;
+
+            // Update the global variable for pronunciation.
             CurKana = kanaToDisplay;
 		}
 
@@ -87,6 +93,7 @@
 		<div>
 			<button type="button" onclick="DisplayRandomKana()">Random One</button>
 			<button type="button" onmousedown="TurnOnPronunciation()" onmouseup="TurnOffPronunciation()" onmouseleave="TurnOffPronunciation()">Pronunciation</button>
+            <span id="counter">Counter:</span>
 		</div>
         <br>
 		<div>
